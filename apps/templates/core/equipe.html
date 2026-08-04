@@ -1,0 +1,48 @@
+{% extends "vl/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="pt-32 pb-20 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Equipe</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Profissionais especializados e comprometidos com resultados.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="text-center">
+                <img src="{% static 'vl/img/lucas-viergas.png' %}" alt="Lucas Viegas"
+                     class="rounded-2xl shadow-xl w-full max-w-md mx-auto mb-6">
+                <h3 class="font-serif text-3xl font-bold text-vl-navy">Lucas Viegas</h3>
+                <p class="text-vl-gold font-medium mt-2 mb-4">{{ config.oab|default:"OAB/DF 36.362" }} · Sócio Fundador</p>
+                <p class="text-gray-700 leading-relaxed max-w-md mx-auto">
+                    Advogado tributarista e empresarial com 15+ anos de experiência.
+                    Especialista em planejamento tributário, contencioso fiscal e M&A.
+                </p>
+            </div>
+
+            <div class="space-y-6">
+                <h3 class="font-serif text-2xl font-bold text-vl-navy mb-4">Formação & Atuação</h3>
+                <div class="space-y-4">
+                    <div class="border-l-4 border-vl-gold pl-6 py-2">
+                        <h4 class="font-semibold text-vl-navy">Direito Tributário</h4>
+                        <p class="text-gray-700 text-sm">Planejamento, contencioso, recuperação de créditos, M&A.</p>
+                    </div>
+                    <div class="border-l-4 border-vl-gold pl-6 py-2">
+                        <h4 class="font-semibold text-vl-navy">Direito Empresarial</h4>
+                        <p class="text-gray-700 text-sm">Contratos, reestruturações, governança, M&A.</p>
+                    </div>
+                    <div class="border-l-4 border-vl-gold pl-6 py-2">
+                        <h4 class="font-semibold text-vl-navy">Reforma Tributária</h4>
+                        <p class="text-gray-700 text-sm">Assessoria em transição para IBS/CBS (2026-2033).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

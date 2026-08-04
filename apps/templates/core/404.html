@@ -1,0 +1,14 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center bg-vl-cream px-4">
+    <div class="text-center max-w-xl">
+        <h1 class="font-serif text-7xl font-bold text-vl-navy mb-4">404</h1>
+        <h2 class="font-serif text-3xl font-bold text-vl-navy mb-3">Página não encontrada</h2>
+        <p class="text-gray-700 mb-8">A página que você procura não existe ou foi movida.</p>
+        <a href="{% url 'core:home' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg">
+            Voltar para o Início
+        </a>
+    </div>
+</section>
+{% endblock %}

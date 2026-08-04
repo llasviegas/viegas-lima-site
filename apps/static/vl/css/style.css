@@ -1,0 +1,108 @@
+/* Viegas & Lima — Custom styles complementares ao Tailwind */
+
+/* Animações */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+/* Reveal on scroll */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Typography refinements */
+.prose h1, .prose h2, .prose h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.prose h2 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.25rem;
+    color: #0A1F44;
+}
+
+.prose h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: #0A1F44;
+}
+
+.prose p {
+    margin-bottom: 1.25rem;
+    line-height: 1.8;
+    color: #2C2C2C;
+}
+
+.prose ul, .prose ol {
+    margin-bottom: 1.25rem;
+    padding-left: 1.5rem;
+}
+
+.prose li {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+.prose a {
+    color: #B8860B;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+}
+
+.prose a:hover {
+    color: #D4AF37;
+}
+
+.prose strong {
+    color: #0A1F44;
+    font-weight: 600;
+}
+
+/* Form inputs */
+.vl-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 0.95rem;
+    transition: all 0.2s;
+    background-color: white;
+}
+
+.vl-input:focus {
+    outline: none;
+    border-color: #B8860B;
+    box-shadow: 0 0 0 3px rgba(184, 134, 11, 0.1);
+}
+
+.vl-input::placeholder {
+    color: #9ca3af;
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+    background-color: #B8860B;
+    color: white;
+}

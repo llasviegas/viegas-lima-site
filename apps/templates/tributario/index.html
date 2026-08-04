@@ -1,0 +1,75 @@
+{% extends "vl/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <span class="inline-block bg-vl-gold/20 text-vl-gold-light px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-vl-gold/30 mb-4">
+            Nossa Especialidade
+        </span>
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Direito Tributário</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Assessoria completa em todas as frentes da advocacia tributária.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-vl-cream">
+    <div class="container mx-auto px-4 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% for pagina in paginas %}
+            <a href="{% url 'tributario:planejamento' %}" class="subpage-card">
+                <div class="text-4xl mb-3">{{ pagina.icone }}</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">{{ pagina.titulo }}</h3>
+                <p class="text-gray-700 text-sm mb-3">{{ pagina.descricao_curta }}</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center text-gray-500">
+                <p>Páginas serão cadastradas via admin.</p>
+            </div>
+            {% endfor %}
+
+            {# Fallback: 5 páginas estáticas #}
+            <a href="{% url 'tributario:planejamento' %}" class="subpage-card">
+                <div class="text-4xl mb-3">📊</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">Planejamento Tributário</h3>
+                <p class="text-gray-700 text-sm mb-3">Reduza a carga tributária da sua empresa legalmente.</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+            <a href="{% url 'tributario:contencioso' %}" class="subpage-card">
+                <div class="text-4xl mb-3">⚖️</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">Contencioso Fiscal</h3>
+                <p class="text-gray-700 text-sm mb-3">Defesa especializada contra autuações fiscais.</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+            <a href="{% url 'tributario:recuperacao' %}" class="subpage-card">
+                <div class="text-4xl mb-3">💰</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">Recuperação de Créditos</h3>
+                <p class="text-gray-700 text-sm mb-3">Recupere tributos pagos indevidamente.</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+            <a href="{% url 'tributario:reforma' %}" class="subpage-card">
+                <div class="text-4xl mb-3">🔄</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">Reforma Tributária</h3>
+                <p class="text-gray-700 text-sm mb-3">Prepare-se para IBS/CBS com planejamento estratégico.</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+            <a href="{% url 'tributario:ma' %}" class="subpage-card">
+                <div class="text-4xl mb-3">🤝</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-2">M&A e Reestruturações</h3>
+                <p class="text-gray-700 text-sm mb-3">Due diligence tributária em operações societárias.</p>
+                <span class="text-vl-gold font-semibold text-sm">Saiba mais →</span>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .subpage-card {
+        @apply bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-vl-gold hover:-translate-y-1 block;
+    }
+</style>
+{% endblock %}

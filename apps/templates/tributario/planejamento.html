@@ -1,0 +1,53 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">📊 Planejamento Tributário</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Reduza a carga tributária da sua empresa com segurança jurídica.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <h2 class="font-serif text-vl-navy">O que é Planejamento Tributário?</h2>
+        <p>
+            O planejamento tributário é o conjunto de estratégias legais para reduzir a carga de tributos da sua empresa,
+            identificando regimes mais vantajosos, créditos fiscais disponíveis, oportunidades de reorganização societária e
+            benefícios fiscais aplicáveis.
+        </p>
+
+        <h2 class="font-serif text-vl-navy mt-8">Quando sua empresa precisa?</h2>
+        <ul>
+            <li>Faturamento acima de R$ 4,8 milhões anuais (Lucro Real / Presumido)</li>
+            <li>Múltiplas atividades ou filiais em estados diferentes</li>
+            <li>Operações interestaduais e internacionais</li>
+            <li>Reorganizações societárias em curso ou planejadas</li>
+            <li>Operações com substituição tributária, ICMS-ST, créditos de PIS/COFINS</li>
+            <li>Holdings, controladas, joint ventures</li>
+        </ul>
+
+        <h2 class="font-serif text-vl-navy mt-8">Como atuamos</h2>
+        <ol>
+            <li><strong>Diagnóstico tributário</strong>: mapeamento completo da situação atual</li>
+            <li><strong>Identificação de oportunidades</strong>: regimes, créditos, incentivos</li>
+            <li><strong>Modelagem jurídica</strong>: estrutura societária e contratual ideal</li>
+            <li><strong>Implementação</strong>: execução com acompanhamento técnico</li>
+            <li><strong>Monitoramento contínuo</strong>: ajustes frente a mudanças legislativas</li>
+        </ol>
+
+        <div class="bg-vl-gold/10 border-l-4 border-vl-gold p-6 my-8 not-italic">
+            <p class="font-bold text-vl-navy">Resultado típico:</p>
+            <p>Empresas do Lucro Real conseguem reduzir de 15% a 30% da carga tributária com planejamento estruturado.</p>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Solicitar Diagnóstico Tributário
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

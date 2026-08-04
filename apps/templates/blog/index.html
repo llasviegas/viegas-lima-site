@@ -1,0 +1,89 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Blog</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">Artigos sobre direito tributário, empresarial e Reforma Tributária.</p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+        {# Categorias #}
+        {% if categorias %}
+        <div class="flex flex-wrap gap-2 mb-12 justify-center">
+            <a href="{% url 'blog:index' %}" class="cat-pill">Todos</a>
+            {% for cat in categorias %}
+            <a href="?categoria={{ cat.slug }}" class="cat-pill">{{ cat.nome }}</a>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {% for artigo in page_obj %}
+            <a href="{{ artigo.get_absolute_url }}" class="blog-card">
+                {% if artigo.imagem_destaque %}
+                <img src="{{ artigo.imagem_destaque.url }}" alt="{{ artigo.titulo }}" class="blog-img">
+                {% else %}
+                <div class="blog-img-placeholder">
+                    <span class="text-4xl">�</span>
+                </div>
+                {% endif %}
+                <div class="p-6">
+                    {% if artigo.categoria %}
+                    <span class="text-xs text-vl-gold font-semibold uppercase tracking-wider">{{ artigo.categoria.nome }}</span>
+                    {% endif %}
+                    <h3 class="font-serif text-xl font-bold text-vl-navy mt-2 mb-3 hover:text-vl-gold transition-colors">{{ artigo.titulo }}</h3>
+                    <p class="text-gray-700 text-sm mb-4">{{ artigo.resumo|truncatewords:25 }}</p>
+                    <div class="flex items-center justify-between text-xs text-gray-500">
+                        <span>{{ artigo.data_publicacao|date:"d/m/Y" }}</span>
+                        <span>{{ artigo.tempo_leitura_min }} min</span>
+                    </div>
+                </div>
+            </a>
+            {% empty %}
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500 text-lg">Em breve novos artigos.</p>
+            </div>
+            {% endfor %}
+        </div>
+
+        {# Paginação #}
+        {% if page_obj.has_other_pages %}
+        <div class="flex justify-center mt-12 gap-2">
+            {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="pagination-link">← Anterior</a>
+            {% endif %}
+            <span class="pagination-current">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span>
+            {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="pagination-link">Próxima →</a>
+            {% endif %}
+        </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .cat-pill {
+        @apply px-4 py-2 rounded-full bg-vl-cream hover:bg-vl-gold hover:text-white text-vl-navy text-sm font-medium transition-colors;
+    }
+    .blog-card {
+        @apply bg-white rounded-xl shadow-md hover:shadow-xl transition-all border border-gray-100 hover:border-vl-gold hover:-translate-y-1 overflow-hidden block;
+    }
+    .blog-img {
+        @apply w-full h-48 object-cover;
+    }
+    .blog-img-placeholder {
+        @apply w-full h-48 bg-gradient-to-br from-vl-navy to-vl-navy-dark flex items-center justify-center text-white;
+    }
+    .pagination-link {
+        @apply px-4 py-2 bg-vl-navy hover:bg-vl-gold text-white rounded-lg transition-colors;
+    }
+    .pagination-current {
+        @apply px-4 py-2 text-vl-graphite;
+    }
+</style>
+{% endblock %}

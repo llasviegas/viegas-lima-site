@@ -1,0 +1,44 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">�️ Contencioso Fiscal</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Defesa especializada em autuações fiscais e execuções tributárias.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <h2 class="font-serif text-vl-navy">Atuamos em todas as esferas</h2>
+        <ul>
+            <li><strong>Administrativo</strong>: defesas em autos de infração no CARF, Conselhos Estaduais e Municipais</li>
+            <li><strong>Judicial</strong>: Mandados de Segurança, Ações Anulatórias, Embargos à Execução Fiscal</li>
+            <li><strong>Execuções fiscais</strong>: defesa patrimonial, parcelamento, garantia do juízo</li>
+        </ul>
+
+        <h2 class="font-serif text-vl-navy mt-8">Principais teses que atuamos</h2>
+        <ul>
+            <li>Inclusão de ICMS na base de PIS/COFINS (Tema 69 STJ)</li>
+            <li>Exclusão do ISS da base PIS/COFINS</li>
+            <li>Créditos de PIS/COFINS sobre insumos</li>
+            <li>ICMS-ST: restituição e créditos</li>
+            <li>Auto de infração: nulidades por vício formal</li>
+            <li>Decadência e prescrição tributária</li>
+        </ul>
+
+        <div class="bg-vl-gold/10 border-l-4 border-vl-gold p-6 my-8 not-italic">
+            <p class="font-bold text-vl-navy">Importante:</p>
+            <p>Prazos para defesa contam da data de intimação do auto de infração. Geralmente <strong>30 dias</strong>. Aja rápido.</p>
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Recebi Auto de Infração — Preciso de Defesa
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

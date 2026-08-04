@@ -1,0 +1,16 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white px-4">
+    <div class="text-center max-w-2xl">
+        <div class="text-vl-gold text-7xl mb-6">✓</div>
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Mensagem Enviada!</h1>
+        <p class="text-xl text-white/80 mb-8">
+            Recebemos seu contato. Retornaremos em até 1 dia útil.
+        </p>
+        <a href="{% url 'core:home' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+            Voltar para o Início
+        </a>
+    </div>
+</section>
+{% endblock %}

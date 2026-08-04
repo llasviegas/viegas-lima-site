@@ -1,0 +1,120 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {# SEO #}
+    <title>{% block title %}{{ meta_title|default:"Viegas & Lima Advocacia" }}{% endblock %}</title>
+    <meta name="description" content="{{ meta_description|default:'Consultoria jurídica e tributária estratégica para grandes negócios.' }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ SITE_URL }}{{ request.path }}">
+
+    {# Open Graph #}
+    <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+    <meta property="og:title" content="{% block og_title %}{{ meta_title|default:'Viegas & Lima' }}{% endblock %}">
+    <meta property="og:description" content="{% block og_description %}{{ meta_description|default:'' }}{% endblock %}">
+    <meta property="og:url" content="{{ SITE_URL }}{{ request.path }}">
+    <meta property="og:site_name" content="Viegas & Lima Advocacia">
+    <meta property="og:locale" content="pt_BR">
+
+    {# Schema.org — LegalService #}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LegalService",
+      "name": "Viegas & Lima Advocacia e Assessoria",
+      "url": "{{ SITE_URL }}",
+      "logo": "{{ SITE_URL }}{% static 'vl/img/logo-vl-light.png' %}",
+      "description": "Consultoria tributária e jurídica estratégica para médias e grandes empresas.",
+      "telephone": "{{ config.telefone|default:'' }}",
+      "email": "{{ config.email|default:'' }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Ceilândia",
+        "addressRegion": "DF",
+        "addressCountry": "BR"
+      },
+      "areaServed": "BR",
+      "priceRange": "$$$"
+    }
+    </script>
+
+    {# Tailwind CDN #}
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'vl-navy': '#0A1F44',
+              'vl-navy-dark': '#06152E',
+              'vl-gold': '#B8860B',
+              'vl-gold-light': '#D4AF37',
+              'vl-cream': '#FAFAFA',
+              'vl-graphite': '#2C2C2C',
+            },
+            fontFamily: {
+              'serif': ['Playfair Display', 'Georgia', 'serif'],
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            }
+          }
+        }
+      }
+    </script>
+
+    {# Fonts #}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    {# HTMX + Alpine #}
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="icon" type="image/png" href="{% static 'vl/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'vl/css/style.css' %}">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body class="font-sans bg-vl-cream text-vl-graphite antialiased">
+
+    {# Navbar #}
+    {% include "vl/_navbar.html" %}
+
+    {# Messages #}
+    {% if messages %}
+    <div class="fixed top-20 right-4 z-50 space-y-2">
+        {% for message in messages %}
+        <div class="bg-vl-navy text-white px-6 py-3 rounded-lg shadow-2xl border-l-4 border-vl-gold animate-fade-in">
+            {{ message }}
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    {# Footer #}
+    {% include "vl/_footer.html" %}
+
+    {# WhatsApp Flutuante #}
+    {% if config.whatsapp %}
+    <a href="https://wa.me/{{ config.whatsapp }}?text={{ config.whatsapp_mensagem|urlencode }}"
+       target="_blank"
+       class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-transform hover:scale-110"
+       aria-label="Falar no WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.69 1.948 6.57 6.57 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.622 6.592z"/>
+            <path d="M11.857 9.546c-.19-.095-1.124-.554-1.298-.617-.174-.062-.301-.095-.428.095-.126.19-.49.617-.6.743-.111.126-.221.142-.412.047-.19-.095-.802-.296-1.528-.943a5.733 5.733 0 0 1-1.06-1.318c-.111-.19-.012-.293.084-.388.086-.086.19-.221.285-.332.095-.111.126-.19.19-.317.063-.126.032-.237-.016-.332-.047-.095-.428-1.03-.587-1.41-.155-.37-.312-.32-.428-.327-.111-.007-.237-.007-.364-.007a.7.7 0 0 0-.506.236c-.174.19-.664.65-.664 1.585 0 .935.681 1.838.775 1.964.095.126 1.338 2.043 3.244 2.863.454.196.807.313 1.084.4.456.145.87.125 1.198.076.365-.055 1.124-.46 1.282-.904.158-.444.158-.825.111-.904-.047-.079-.174-.126-.364-.221z"/>
+        </svg>
+    </a>
+    {% endif %}
+
+    <script src="{% static 'vl/js/main.js' %}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

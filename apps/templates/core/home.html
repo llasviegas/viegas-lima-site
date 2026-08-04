@@ -1,0 +1,238 @@
+{% extends "vl/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{# ============ HERO ============ #}
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-vl-navy via-vl-navy-dark to-black pt-20">
+    {# Background overlay #}
+    <div class="absolute inset-0 opacity-20">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(184,134,11,0.15),transparent_50%)]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 lg:px-8 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="text-white">
+                <span class="inline-block bg-vl-gold/20 text-vl-gold-light px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-vl-gold/30 mb-6">
+                    Advocacia Tributária Estratégica
+                </span>
+                <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
+                    Sua empresa paga
+                    <span class="text-vl-gold-light">menos tributo</span>
+                    com segurança jurídica.
+                </h1>
+                <p class="text-xl text-white/80 mb-8 leading-relaxed max-w-xl">
+                    Planejamento tributário, contencioso fiscal e recuperação de créditos para médias e grandes empresas. Atendimento técnico e personalizado.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    {% if config.whatsapp %}
+                    <a href="https://wa.me/{{ config.whatsapp }}?text={{ config.whatsapp_mensagem|urlencode }}"
+                       target="_blank"
+                       class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-2xl transition-all hover:scale-105">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
+                        Consulta Rápida via WhatsApp
+                    </a>
+                    {% endif %}
+                    <a href="{% url 'leads:contato' %}"
+                       class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium px-8 py-4 rounded-lg transition-all">
+                        Agendar Reunião Estratégica
+                    </a>
+                </div>
+            </div>
+
+            {# Logo hero #}
+            <div class="hidden lg:flex justify-center items-center">
+                <div class="relative">
+                    <img src="{% static 'vl/img/logo-vl-dark.jpg' %}" alt="Viegas & Lima"
+                         class="w-full max-w-md rounded-2xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Scroll indicator #}
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+</section>
+
+
+{# ============ INDICADORES ============ #}
+{% if indicadores %}
+<section class="py-16 bg-white relative -mt-12 mx-4 lg:mx-12 rounded-2xl shadow-xl z-20">
+    <div class="container mx-auto px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            {% for n in indicadores %}
+            <div>
+                <div class="text-vl-gold text-5xl mb-2">{{ n.icone }}</div>
+                <div class="font-serif text-4xl md:text-5xl font-bold text-vl-navy mb-1">{{ n.valor }}</div>
+                <div class="text-vl-graphite font-medium">{{ n.rotulo }}</div>
+                {% if n.descricao %}<div class="text-sm text-gray-500 mt-1">{{ n.descricao }}</div>{% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+{# ============ ÁREA TRIBUTÁRIO — CARRO-CHEFE ============ #}
+<section class="py-24 bg-vl-cream">
+    <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-vl-gold font-semibold tracking-wider uppercase text-sm">Nossa especialidade</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-vl-navy mt-3 mb-5">
+                Direito Tributário Estratégico
+            </h2>
+            <p class="text-lg text-gray-700">
+                Atuamos em todas as frentes da advocacia tributária para reduzir riscos, recuperar créditos e estruturar operações com eficiência fiscal.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {# Cards das páginas tributário #}
+            <a href="{% url 'tributario:planejamento' %}" class="tributario-card">
+                <div class="tributario-icon">📊</div>
+                <h3 class="tributario-titulo">Planejamento Tributário</h3>
+                <p class="tributario-desc">Análise completa para identificar oportunidades legais de redução da carga tributária da sua empresa.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+
+            <a href="{% url 'tributario:contencioso' %}" class="tributario-card">
+                <div class="tributario-icon">⚖️</div>
+                <h3 class="tributario-titulo">Contencioso Fiscal</h3>
+                <p class="tributario-desc">Defesa especializada em autos de infração, execuções fiscais e processos administrativos tributários.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+
+            <a href="{% url 'tributario:recuperacao' %}" class="tributario-card">
+                <div class="tributario-icon">💰</div>
+                <h3 class="tributario-titulo">Recuperação de Créditos</h3>
+                <p class="tributario-desc">Recupere PIS, COFINS, ICMS, IRPJ e outros tributos pagos a mais nos últimos 5 anos.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+
+            <a href="{% url 'tributario:reforma' %}" class="tributario-card">
+                <div class="tributario-icon">🔄</div>
+                <h3 class="tributario-titulo">Reforma Tributária</h3>
+                <p class="tributario-desc">Prepare sua empresa para o IBS/CBS. Análise de impactos e oportunidades da transição 2026-2033.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+
+            <a href="{% url 'tributario:ma' %}" class="tributario-card">
+                <div class="tributario-icon">🤝</div>
+                <h3 class="tributario-titulo">M&A com Due Diligence</h3>
+                <p class="tributario-desc">Assessoria tributária em fusões, aquisições e reestruturações societárias complexas.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+
+            <a href="{% url 'empresarial:index' %}" class="tributario-card">
+                <div class="tributario-icon">🏢</div>
+                <h3 class="tributario-titulo">Direito Empresarial</h3>
+                <p class="tributario-desc">Contratos, governança, reestruturações e operações societárias de médio e grande porte.</p>
+                <span class="tributario-link">Saiba mais →</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+{# ============ CASES DE SUCESSO ============ #}
+{% if cases %}
+<section class="py-24 bg-white">
+    <div class="container mx-auto px-4 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <span class="text-vl-gold font-semibold tracking-wider uppercase text-sm">Resultados que importam</span>
+            <h2 class="font-serif text-4xl md:text-5xl font-bold text-vl-navy mt-3 mb-5">
+                Cases de Sucesso
+            </h2>
+            <p class="text-lg text-gray-700">
+                Conheça alguns dos resultados que entregamos para nossos clientes (nomes fictícios para preservar sigilo).
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            {% for case in cases %}
+            <a href="{{ case.get_absolute_url }}" class="case-card group">
+                <div class="bg-vl-gold text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full inline-block mb-4">
+                    {{ case.get_setor_display }}
+                </div>
+                <h3 class="font-serif text-2xl font-bold text-vl-navy mb-3 group-hover:text-vl-gold transition-colors">
+                    {{ case.titulo }}
+                </h3>
+                <p class="text-gray-700 mb-6">{{ case.resumo|truncatewords:30 }}</p>
+                {% if case.resultado_numero %}
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="text-vl-gold font-bold text-2xl font-serif">{{ case.resultado_numero }}</div>
+                    {% if case.duracao %}<div class="text-sm text-gray-500">em {{ case.duracao }}</div>{% endif %}
+                </div>
+                {% endif %}
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'cases:index' %}" class="inline-flex items-center gap-2 text-vl-navy hover:text-vl-gold font-semibold transition-colors">
+                Ver todos os cases
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+
+{# ============ CTA FINAL ============ #}
+<section class="py-24 bg-gradient-to-br from-vl-navy via-vl-navy-dark to-black text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(184,134,11,0.3),transparent_50%)]"></div>
+    </div>
+
+    <div class="container mx-auto px-4 lg:px-8 relative z-10 text-center max-w-4xl">
+        <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+            Pronto para pagar menos tributos
+            <span class="text-vl-gold-light">com segurança jurídica?</span>
+        </h2>
+        <p class="text-xl text-white/80 mb-10">
+            Agende uma consulta estratégica. Vamos analisar a situação da sua empresa e identificar oportunidades reais.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            {% if config.whatsapp %}
+            <a href="https://wa.me/{{ config.whatsapp }}?text={{ config.whatsapp_mensagem|urlencode }}"
+               target="_blank"
+               class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-2xl transition-all hover:scale-105">
+                Falar no WhatsApp
+            </a>
+            {% endif %}
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 text-white font-medium px-8 py-4 rounded-lg transition-all">
+                Agendar Consulta
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block extra_css %}
+<style>
+    .tributario-card {
+        @apply bg-white p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-vl-gold hover:-translate-y-2 block;
+    }
+    .tributario-icon {
+        @apply text-5xl mb-4 text-vl-gold;
+    }
+    .tributario-titulo {
+        @apply font-serif text-2xl font-bold text-vl-navy mb-3;
+    }
+    .tributario-desc {
+        @apply text-gray-700 leading-relaxed mb-4;
+    }
+    .tributario-link {
+        @apply text-vl-gold font-semibold hover:text-vl-gold-light transition-colors;
+    }
+    .case-card {
+        @apply bg-vl-cream p-8 rounded-2xl border border-gray-100 hover:shadow-xl transition-all hover:-translate-y-1 block;
+    }
+</style>
+{% endblock %}

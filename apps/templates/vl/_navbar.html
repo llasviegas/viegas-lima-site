@@ -1,0 +1,91 @@
+{% load static %}
+<nav class="fixed top-0 left-0 right-0 z-50 bg-vl-navy/95 backdrop-blur-md shadow-xl transition-all duration-300"
+     x-data="{ open: false, scrolled: false }"
+     x-init="window.addEventListener('scroll', () => scrolled = window.scrollY > 20)"
+     :class="{ 'bg-vl-navy-dark/98': scrolled }">
+    <div class="container mx-auto px-4 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+
+            {# Logo #}
+            <a href="{% url 'core:home' %}" class="flex items-center group">
+                <img src="{% static 'vl/img/logo-vl-light.png' %}" alt="Viegas & Lima"
+                     class="h-14 w-auto transition-transform group-hover:scale-105">
+            </a>
+
+            {# Menu Desktop #}
+            <div class="hidden lg:flex items-center space-x-1">
+                <a href="{% url 'core:home' %}" class="nav-link">Início</a>
+
+                <div class="relative" x-data="{ open: false }" @mouseleave="open = false">
+                    <button @mouseenter="open = true" @click="open = !open"
+                            class="nav-link flex items-center gap-1">
+                        Tributário
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                    </button>
+                    <div x-show="open" x-transition
+                         class="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl py-2 border border-gray-100">
+                        <a href="{% url 'tributario:planejamento' %}" class="dropdown-link">📊 Planejamento Tributário</a>
+                        <a href="{% url 'tributario:contencioso' %}" class="dropdown-link">⚖️ Contencioso Fiscal</a>
+                        <a href="{% url 'tributario:recuperacao' %}" class="dropdown-link">💰 Recuperação de Créditos</a>
+                        <a href="{% url 'tributario:reforma' %}" class="dropdown-link">🔄 Reforma Tributária</a>
+                        <a href="{% url 'tributario:ma' %}" class="dropdown-link">🤝 M&A Tributário</a>
+                    </div>
+                </div>
+
+                <a href="{% url 'empresarial:index' %}" class="nav-link">Empresarial</a>
+                <a href="{% url 'civil:index' %}" class="nav-link">Cível</a>
+                <a href="{% url 'trabalhista:index' %}" class="nav-link">Trabalhista</a>
+                <a href="{% url 'cases:index' %}" class="nav-link">Cases</a>
+                <a href="{% url 'blog:index' %}" class="nav-link">Blog</a>
+                <a href="{% url 'core:sobre' %}" class="nav-link">Sobre</a>
+            </div>
+
+            {# CTA WhatsApp + Mobile #}
+            <div class="flex items-center gap-3">
+                {% if config.whatsapp %}
+                <a href="https://wa.me/{{ config.whatsapp }}?text={{ config.whatsapp_mensagem|urlencode }}"
+                   target="_blank"
+                   class="hidden md:inline-flex bg-vl-gold hover:bg-vl-gold-light text-white px-5 py-2.5 rounded-lg font-medium transition-all hover:scale-105 shadow-lg">
+                    Consulta Rápida
+                </a>
+                {% endif %}
+
+                <button @click="open = !open" class="lg:hidden text-white p-2">
+                    <svg x-show="!open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+                    <svg x-show="open" class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+            </div>
+        </div>
+
+        {# Menu Mobile #}
+        <div x-show="open" x-transition class="lg:hidden pb-6 pt-2 space-y-1">
+            <a href="{% url 'core:home' %}" class="mobile-link">Início</a>
+            <a href="{% url 'tributario:planejamento' %}" class="mobile-link">Tributário</a>
+            <a href="{% url 'tributario:contencioso' %}" class="mobile-link">Contencioso</a>
+            <a href="{% url 'tributario:recuperacao' %}" class="mobile-link">Recuperação</a>
+            <a href="{% url 'tributario:reforma' %}" class="mobile-link">Reforma</a>
+            <a href="{% url 'empresarial:index' %}" class="mobile-link">Empresarial</a>
+            <a href="{% url 'cases:index' %}" class="mobile-link">Cases</a>
+            <a href="{% url 'blog:index' %}" class="mobile-link">Blog</a>
+            <a href="{% url 'core:sobre' %}" class="mobile-link">Sobre</a>
+            <a href="{% url 'leads:contato' %}" class="mobile-link bg-vl-gold text-white text-center mt-4">Contato</a>
+        </div>
+    </div>
+</nav>
+
+<style>
+    .nav-link {
+        @apply text-white/90 hover:text-vl-gold-light px-4 py-2 text-sm font-medium transition-colors relative;
+    }
+    .nav-link::after {
+        content: '';
+        @apply absolute left-4 right-4 bottom-1 h-0.5 bg-vl-gold scale-x-0 transition-transform origin-left;
+    }
+    .nav-link:hover::after { @apply scale-x-100; }
+    .dropdown-link {
+        @apply block px-4 py-2.5 text-sm text-gray-700 hover:bg-vl-cream hover:text-vl-navy transition-colors;
+    }
+    .mobile-link {
+        @apply block text-white/90 hover:text-vl-gold-light hover:bg-vl-navy-dark px-4 py-3 rounded-lg transition-colors;
+    }
+</style>

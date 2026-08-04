@@ -1,0 +1,66 @@
+{% extends "vl/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="pt-32 pb-20 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Sobre Nós</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Advocacia técnica, estratégica e comprometida com resultados.
+        </p>
+    </div>
+</section>
+
+<section class="py-20 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="font-serif text-3xl font-bold text-vl-navy mb-4">Lucas Viegas</h2>
+                <p class="text-vl-gold font-medium mb-6">{{ config.oab|default:"OAB/DF 36.362" }}</p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Advogado com mais de 15 anos de experiência em direito tributário e empresarial. Especialista em
+                    planejamento tributário estratégico, contencioso fiscal e recuperação de créditos para médias
+                    e grandes empresas.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Atuação focada em resultados mensuráveis: redução legal de carga tributária, defesa em
+                    autuações fiscais e estruturação de operações com eficiência fiscal.
+                </p>
+                <p class="text-gray-700 leading-relaxed">
+                    Fundador da Viegas & Lima Advocacia, escritório boutique em Ceilândia-DF com atendimento
+                    personalizado e técnico.
+                </p>
+            </div>
+            <div>
+                <img src="{% static 'vl/img/lucas-viergas.png' %}" alt="Lucas Viegas"
+                     class="rounded-2xl shadow-2xl w-full">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-20 bg-vl-cream">
+    <div class="container mx-auto px-4 lg:px-8 max-w-5xl">
+        <div class="text-center mb-12">
+            <h2 class="font-serif text-4xl font-bold text-vl-navy mb-4">Nossos Valores</h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="text-vl-gold text-5xl mb-4">⚖️</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-3">Ética Rigorosa</h3>
+                <p class="text-gray-700">Atuação estritamente dentro da legalidade. Compliance integral.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="text-vl-gold text-5xl mb-4">🎯</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-3">Resultados Reais</h3>
+                <p class="text-gray-700">Foco em economia tributária mensurável e segurança jurídica.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-md text-center">
+                <div class="text-vl-gold text-5xl mb-4">🤝</div>
+                <h3 class="font-serif text-xl font-bold text-vl-navy mb-3">Atendimento Próximo</h3>
+                <p class="text-gray-700">Cada cliente é tratado de forma personalizada e técnica.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

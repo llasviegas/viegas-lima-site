@@ -1,0 +1,39 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">🤝 M&A e Reestruturações</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Due diligence tributária em operações societárias complexas.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <h2 class="font-serif text-vl-navy">Atuação em M&A</h2>
+        <p>
+            Assessoria tributária completa em fusões, aquisições, joint ventures, cisões, incorporações e
+            reestruturações societárias. Foco em identificar passivos tributários ocultos e oportunidades de
+            eficiência fiscal.
+        </p>
+
+        <h2 class="font-serif text-vl-navy mt-8">Serviços</h2>
+        <ul>
+            <li>Due diligence tributária (buy-side e sell-side)</li>
+            <li>Estruturação tributária da operação</li>
+            <li>Análise de ágio e goodwill</li>
+            <li>Benefício fiscal de ágio (art. 14 da Lei 12.973/2014)</li>
+            <li>Modelagem de holding patrimonial</li>
+            <li>Reorganizações societárias</li>
+        </ul>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Assessoria em M&A
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

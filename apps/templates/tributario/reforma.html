@@ -1,0 +1,46 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">🔄 Reforma Tributária</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Prepare sua empresa para IBS/CBS. Transição 2026-2033.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <h2 class="font-serif text-vl-navy">O que muda?</h2>
+        <p>
+            A Reforma Tributária (EC 132/2023) substitui cinco tributos (PIS, COFINS, IPI, ICMS, ISS) por três:
+            <strong>IBS</strong> (estadual/municipal), <strong>CBS</strong> (federal) e <strong>IS</strong> (seletivo).
+            Transição gradual de 2026 a 2033.
+        </p>
+
+        <h2 class="font-serif text-vl-navy mt-8">Cronograma</h2>
+        <ul>
+            <li><strong>2026</strong>: início da CBS (federal)</li>
+            <li><strong>2027-2028</strong>: testes IBS</li>
+            <li><strong>2029-2032</strong>: transição gradual</li>
+            <li><strong>2033</strong>: extinção completa dos tributos antigos</li>
+        </ul>
+
+        <h2 class="font-serif text-vl-navy mt-8">O que sua empresa precisa fazer AGORA</h2>
+        <ol>
+            <li>Mapeamento de impactos por linha de produto/serviço</li>
+            <li>Revisão do regime tributário (Lucro Real vs. Presumido)</li>
+            <li>Reorganização de cadeia produtiva e logística</li>
+            <li>Planejamento de créditos de IBS/CBS</li>
+            <li>Ajuste de sistemas ERP e fiscal</li>
+        </ol>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Assessoria em Reforma Tributária
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

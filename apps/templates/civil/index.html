@@ -1,0 +1,22 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">Direito Cível</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">Contratos, responsabilidade civil e obrigações.</p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <p>Assessoria em direito cível para pessoas físicas e jurídicas: contratos, responsabilidade civil, direito do consumidor, obrigações e direito imobiliário.</p>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Falar com Advogado
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

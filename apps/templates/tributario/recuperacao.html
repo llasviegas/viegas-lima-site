@@ -1,0 +1,39 @@
+{% extends "vl/base.html" %}
+
+{% block content %}
+<section class="pt-32 pb-12 bg-gradient-to-br from-vl-navy to-vl-navy-dark text-white">
+    <div class="container mx-auto px-4 lg:px-8 text-center">
+        <h1 class="font-serif text-5xl md:text-6xl font-bold mb-4">💰 Recuperação de Créditos</h1>
+        <p class="text-xl text-white/80 max-w-2xl mx-auto">
+            Recupere tributos pagos a mais nos últimos 5 anos.
+        </p>
+    </div>
+</section>
+
+<section class="py-16 bg-white">
+    <div class="container mx-auto px-4 lg:px-8 max-w-4xl prose prose-lg">
+        <h2 class="font-serif text-vl-navy">Quais tributos podem ser recuperados?</h2>
+        <ul>
+            <li><strong>PIS/COFINS</strong>: exclusão de ICMS da base, créditos sobre insumos</li>
+            <li><strong>ICMS</strong>: créditos de ICMS-ST, energia elétrica, ativo imobilizado</li>
+            <li><strong>IRPJ/CSLL</strong>: amortização de ágio, PLR, JCP</li>
+            <li><strong>INSS</strong>: verbas indenizatórias, contribuições sobre RAT</li>
+            <li><strong>ISS</strong>: indébitum sobre serviços indevidamente tributados</li>
+        </ul>
+
+        <h2 class="font-serif text-vl-navy mt-8">Como funciona</h2>
+        <ol>
+            <li>Diagnóstico fiscal dos últimos 5 anos</li>
+            <li>Cálculo estimado do crédito recuperável</li>
+            <li>Pedido administrativo de restituição ou ação judicial</li>
+            <li>Acompanhamento até o recebimento (compensação ou dinheiro)</li>
+        </ol>
+
+        <div class="text-center mt-12">
+            <a href="{% url 'leads:contato' %}" class="inline-flex items-center justify-center gap-2 bg-vl-gold hover:bg-vl-gold-light text-white font-semibold px-8 py-4 rounded-lg shadow-lg transition-all hover:scale-105">
+                Solicitar Análise de Créditos
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}
