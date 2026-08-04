@@ -8,6 +8,7 @@ venv/
 .venv/
 env/
 ENV/
+*.egg-info/
 
 # Django
 *.log
@@ -16,6 +17,7 @@ db.sqlite3
 db.sqlite3-journal
 media/
 staticfiles/
+server.log
 
 # Env
 .env
@@ -33,3 +35,11 @@ Thumbs.db
 
 # Render
 .render/
+
+# Screenshots locais (não precisa subir no repo)
+screenshots/
+
+# Build artifacts
+build/
+dist/
+*.egg
