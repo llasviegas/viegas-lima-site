@@ -1,0 +1,277 @@
+[
+  {
+    "model": "core.configuracaosite",
+    "pk": 1,
+    "fields": {
+      "site": 1,
+      "telefone": "(61) 99999-9999",
+      "whatsapp": "5561999999999",
+      "email": "contato@viegaselima.com.br",
+      "endereco": "Ceilândia-DF",
+      "cnpj": "",
+      "oab": "OAB/DF 36.362",
+      "facebook": "",
+      "instagram": "https://instagram.com/viegaselima",
+      "linkedin": "https://linkedin.com/company/viegas-e-lima",
+      "youtube": "",
+      "whatsapp_mensagem": "Olá, gostaria de uma consulta sobre direito tributário."
+    }
+  },
+  {
+    "model": "core.depoimento",
+    "pk": 1,
+    "fields": {
+      "nome": "Carlos Mendes",
+      "cargo_empresa": "Diretor Financeiro, Empresa Industrial A",
+      "texto": "A equipe da Viegas & Lima identificou créditos de PIS/COFINS que não sabíamos que tínhamos direito. Recuperamos R$ 1,2M em 6 meses.",
+      "estrelas": 5,
+      "ativo": true,
+      "ordem": 1
+    }
+  },
+  {
+    "model": "core.depoimento",
+    "pk": 2,
+    "fields": {
+      "nome": "Patricia Souza",
+      "cargo_empresa": "CEO, Grupo Varejo B",
+      "texto": "O planejamento tributário reduziu nossa carga em 22% sem mudar a operação. Atendimento técnico e próximo.",
+      "estrelas": 5,
+      "ativo": true,
+      "ordem": 2
+    }
+  },
+  {
+    "model": "core.depoimento",
+    "pk": 3,
+    "fields": {
+      "nome": "Roberto Almeida",
+      "cargo_empresa": "Sócio, Holding Patrimonial C",
+      "texto": "Profissionais de confiança. Resolveram um auto de infração complexo sem custos adicionais além do contratado.",
+      "estrelas": 5,
+      "ativo": true,
+      "ordem": 3
+    }
+  },
+  {
+    "model": "core.depoimento",
+    "pk": 4,
+    "fields": {
+      "nome": "Juliana Costa",
+      "cargo_empresa": "Diretora Jurídica, Empresa de Serviços D",
+      "texto": "Excelente trabalho na due diligence tributária da nossa aquisição. Evitamos um passivo de R$ 3M.",
+      "estrelas": 5,
+      "ativo": true,
+      "ordem": 4
+    }
+  },
+  {
+    "model": "core.numerico",
+    "pk": 1,
+    "fields": {
+      "valor": "150+",
+      "rotulo": "Casos Atendidos",
+      "descricao": "Empresas assessoradas",
+      "icone": "⚖️",
+      "ordem": 1,
+      "ativo": true
+    }
+  },
+  {
+    "model": "core.numerico",
+    "pk": 2,
+    "fields": {
+      "valor": "R$ 30M+",
+      "rotulo": "Economizados",
+      "descricao": "Em tributos recuperados",
+      "icone": "💰",
+      "ordem": 2,
+      "ativo": true
+    }
+  },
+  {
+    "model": "core.numerico",
+    "pk": 3,
+    "fields": {
+      "valor": "15",
+      "rotulo": "Anos de Experiência",
+      "descricao": "Advocacia tributária e empresarial",
+      "icone": "�",
+      "ordem": 3,
+      "ativo": true
+    }
+  },
+  {
+    "model": "core.numerico",
+    "pk": 4,
+    "fields": {
+      "valor": "98%",
+      "rotulo": "Clientes Satisfeitos",
+      "descricao": "Taxa de recomendação",
+      "icone": "⭐",
+      "ordem": 4,
+      "ativo": true
+    }
+  },
+  {
+    "model": "blog.categoria",
+    "pk": 1,
+    "fields": {
+      "nome": "Direito Tributário",
+      "slug": "direito-tributario"
+    }
+  },
+  {
+    "model": "blog.categoria",
+    "pk": 2,
+    "fields": {
+      "nome": "Reforma Tributária",
+      "slug": "reforma-tributaria"
+    }
+  },
+  {
+    "model": "blog.categoria",
+    "pk": 3,
+    "fields": {
+      "nome": "Direito Empresarial",
+      "slug": "direito-empresarial"
+    }
+  },
+  {
+    "model": "blog.categoria",
+    "pk": 4,
+    "fields": {
+      "nome": "Contencioso Fiscal",
+      "slug": "contencioso-fiscal"
+    }
+  },
+  {
+    "model": "blog.artigo",
+    "pk": 1,
+    "fields": {
+      "titulo": "Reforma Tributária 2026: o que muda para empresas do Lucro Real",
+      "slug": "reforma-tributaria-2026-o-que-muda-para-empresas-do-lucro-real",
+      "resumo": "Análise do impacto da Reforma Tributária (EC 132/2023) nas empresas optantes do Lucro Real. Mudanças no PIS, COFINS, ICMS e ISS com a chegada do IBS e CBS.",
+      "corpo": "A Reforma Tributária do consumo (EC 132/2023) é a maior mudança estrutural do sistema tributário brasileiro desde 1988. Para empresas do Lucro Real, o impacto é direto: a carga tributária total será afetada pela substituição de PIS, COFINS, IPI, ICMS e ISS por IBS (estadual/municipal) e CBS (federal).\n\n## O que muda na prática\n\nA partir de 2026, inicia-se a transição gradual que se estenderá até 2033. As alíquotas de IBS e CBS serão definidas pelo Comitê Gestor do IBS, mas estimativas indicam:\n\n- **Carga total hoje**: ~32% sobre o faturamento\n- **Carga estimada pós-Reforma**: 25% a 28%\n\nPara empresas do Lucro Real com alta margem, isso pode representar economia real. Mas atenção: a carga setorial varia enormemente. Serviços tendem a ser mais tributados; indústria pode ser beneficiada.\n\n## Cronograma resumido\n\n- **2026**: Início da cobrança da CBS (federal)\n- **2027-2028**: Período de testes do IBS\n- **2029-2032**: Transição gradual\n- **2033**: Extinção completa de PIS/COFINS/ICMS/ISS\n\n## O que sua empresa precisa fazer AGORA\n\n1. Mapear a cadeia produtiva atual e identificar créditos de PIS/COFINS disponíveis\n2. Avaliar se o regime atual (Lucro Real) permanece vantajoso\n3. Planejar a reorganização societária para otimização fiscal\n4. Preparar sistemas ERP e fiscal para a mudança\n5. Consultar advogado especializado — cada caso é único\n\nQuer saber o impacto específico na sua empresa? Agende uma análise estratégica.",
+      "categoria": 2,
+      "imagem_destaque": "",
+      "autor": "Lucas Viegas",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.819Z",
+      "data_atualizacao": "2026-08-04T17:55:17.819Z",
+      "visualizacoes": 0,
+      "tempo_leitura_min": 8,
+      "meta_title": "Reforma Tributária 2026: o que muda para empresas do Lucro Real",
+      "meta_description": "Análise do impacto da Reforma Tributária (EC 132/2023) nas empresas optantes do Lucro Real. Mudanças no PIS, COFINS, ICMS e ISS com a chegada do IBS e CBS.",
+      "tags": "reforma tributária, IBS, CBS, Lucro Real"
+    }
+  },
+  {
+    "model": "blog.artigo",
+    "pk": 2,
+    "fields": {
+      "titulo": "Transação Tributária: como sua empresa pode pagar menos com segurança jurídica",
+      "slug": "transacao-tributaria-como-sua-empresa-pode-pagar-menos-com-seguranca-juridica",
+      "resumo": "A Transação Tributária (Lei 14.689/2023) permite negociar descontos de até 50% em dívidas com a União. Veja quando faz sentido para sua empresa.",
+      "corpo": "A Transação Tributária é uma das ferramentas mais eficazes para empresas com débitos junto à Receita Federal ou Procuradoria-Geral da Fazenda Nacional (PGFN). Regulamentada pela Lei 14.689/2023 e pelo Portaria PGFN/ME nº 6.757/2022, permite negociação com descontos e prazos vantajosos.\n\n## Modalidades disponíveis\n\nA PGFN oferece atualmente:\n\n- **Transação por Adesão (Extrajudicial)**: descontos de até 50% sobre o valor principal\n- **Transação Individual**: negociada caso a caso para débitos acima de R$ 10M\n- **Transação no Contencioso**: aplicação de até 50% de desconto + parcelamento\n\n## Vantagens concretas\n\n- Descontos sobre juros e multas (até 100% sobre multas qualificadas)\n- Parcelamento em até 145 meses\n- Possibilidade de usar prejuízo fiscal e base negativa de CSLL para amortizar débitos\n- Suspensão de protestos e execuções fiscais durante a negociação\n\n## Quando vale a pena?\n\nA transação é especialmente vantajosa para:\n\n- Empresas em dificuldade financeira com débitos antigos\n- Débitos com discussão judicial em andamento (transação no contencioso)\n- Situações em que o desconto compensa o custo do processo\n\n## Cuidados importantes\n\nA transação exige confissão de dívida. Por isso, antes de aderir:\n\n1. Analise se realmente há o débito (alguns são discutíveis)\n2. Avalie o impacto contábil (passivo continua existindo até quitação)\n3. Compare com cenários de vitória judicial (especialmente débitos do SIMPLES)\n\nQuer avaliar se sua empresa tem débitos negociáveis? Faça uma consulta estratégica.",
+      "categoria": 1,
+      "imagem_destaque": "",
+      "autor": "Lucas Viegas",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.832Z",
+      "data_atualizacao": "2026-08-04T17:55:17.832Z",
+      "visualizacoes": 0,
+      "tempo_leitura_min": 7,
+      "meta_title": "Transação Tributária: como sua empresa pode pagar menos com segurança ",
+      "meta_description": "A Transação Tributária (Lei 14.689/2023) permite negociar descontos de até 50% em dívidas com a União. Veja quando faz sentido para sua empresa.",
+      "tags": "transação tributária, PGFN, dívida ativa, parcelamento"
+    }
+  },
+  {
+    "model": "blog.artigo",
+    "pk": 3,
+    "fields": {
+      "titulo": "5 sinais de que sua empresa está pagando tributo a mais",
+      "slug": "5-sinais-de-que-sua-empresa-esta-pagando-tributo-a-mais",
+      "resumo": "Indicadores práticos que mostram oportunidades de recuperação tributária. Se algum desses se aplica à sua empresa, há dinheiro na mesa.",
+      "corpo": "Nem sempre é fácil saber se sua empresa está pagando mais tributo do que deveria. Tributação é complexa e muitas oportunidades passam despercebidas. Aqui estão 5 sinais clássicos de que há espaço para economia:\n\n## 1. Você paga ICMS-ST em quase todas as compras\n\nSe sua empresa é contribuinte do ICMS e compra mercadorias com substituição tributária, há grande chance de ter créditos a recuperar. A análise depende do seu CNAE e tipo de mercadoria.\n\n## 2. Nunca revisou os créditos de PIS/COFINS sobre insumos\n\nA Receita Federal tem interpretação restritiva, mas o STJ (Tema 779) reconheceu o direito a créditos sobre insumos essenciais. Se você nunca analisou, pode ter 5 anos de créditos não aproveitados.\n\n## 3. Sua empresa paga PIS/COFINS sobre ICMS\n\nO STF (Tema 69) decidiu em 2021 que o ICMS não compõe a base de PIS/COFINS. Se sua empresa ainda não recuperou esses valores pagos desde 2017, há oportunidade real — embora o prazo decadencial esteja se aproximando.\n\n## 4. Regime tributário escolhido por inércia\n\nMuitos empresários permanecem no Lucro Real por opção do contador há 10 anos, sem reavaliação. Dependendo do setor e margem, o Lucro Presumido pode ser mais vantajoso — e a mudança é permitida 1x por ano.\n\n## 5. Auto de infração \"engavetado\" sem análise\n\nSe há auto de infração antigo que \"ninguém mexeu\", há chances reais de nulidade por vício formal (decadência, ilegitimidade, falta de motivação). Não pague sem antes analisar.\n\n## Próximo passo\n\nSe sua empresa tem 1 ou mais desses sinais, vale uma análise tributária profissional. Identificamos onde está o dinheiro e o que pode ser recuperado legalmente.",
+      "categoria": 1,
+      "imagem_destaque": "",
+      "autor": "Lucas Viegas",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.839Z",
+      "data_atualizacao": "2026-08-04T17:55:17.839Z",
+      "visualizacoes": 0,
+      "tempo_leitura_min": 6,
+      "meta_title": "5 sinais de que sua empresa está pagando tributo a mais",
+      "meta_description": "Indicadores práticos que mostram oportunidades de recuperação tributária. Se algum desses se aplica à sua empresa, há dinheiro na mesa.",
+      "tags": "recuperação tributária, créditos PIS COFINS, ICMS, planejamento"
+    }
+  },
+  {
+    "model": "cases.caseestudo",
+    "pk": 1,
+    "fields": {
+      "titulo": "Recuperação de R$ 2,5M em créditos de PIS/COFINS",
+      "slug": "recuperacao-de-r-25m-em-creditos-de-piscofins",
+      "cliente_ficticio": "Indústria Metalúrgica Alfa",
+      "setor": "industria",
+      "resumo": "Empresa do setor metalúrgico com faturamento de R$ 80M/ano recuperou créditos de PIS/COFINS sobre insumos essenciais (energia, fretes, matérias-primas).",
+      "problema": "A empresa pagava PIS/COFINS sobre todas as compras sem aproveitar créditos sobre insumos definidos pelo STJ (Tema 779). Muitos desses créditos vinham sendo apropriados de forma errada há anos.",
+      "solucao": "Mapeamos todos os custos operacionais da empresa, identificamos quais se enquadravam como insumos essenciais, e preparamos pedido administrativo de restituição dos últimos 5 anos. Quando o pedido foi indeferido, ajuizamos ação judicial com pedido de tutela antecipada.",
+      "resultado": "Recuperamos R$ 2,5M em créditos de PIS/COFINS dos últimos 5 anos, compensados diretamente na apuração mensal.",
+      "resultado_numero": "R$ 2,5M recuperados",
+      "duracao": "8 meses",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.847Z",
+      "meta_title": "Recuperação de R$ 2,5M em créditos de PIS/COFINS",
+      "meta_description": "Empresa do setor metalúrgico com faturamento de R$ 80M/ano recuperou créditos de PIS/COFINS sobre insumos essenciais (energia, fretes, matérias-primas)."
+    }
+  },
+  {
+    "model": "cases.caseestudo",
+    "pk": 2,
+    "fields": {
+      "titulo": "Anulação de auto de infração de R$ 1,8M",
+      "slug": "anulacao-de-auto-de-infracao-de-r-18m",
+      "cliente_ficticio": "Grupo Varejo Beta",
+      "setor": "comercio",
+      "resumo": "Auto de infração lavrado pela Receita Federal por suposta omissão de receitas foi totalmente anulado por vício formal no procedimento fiscal.",
+      "problema": "Receita Federal lavrou auto de infração de R$ 1,8M alegando omissão de receitas com base em cruzamento de dados eletrônicos. A empresa nunca recebeu intimação prévia válida.",
+      "solucao": "Identificamos nulidade por falta de motivação adequada do auto (sem individualização dos valores por competência) e ausência de procedimento administrativo válido. Apresentamos impugnação administrativa robusta no CARF.",
+      "resultado": "Auto de infração totalmente anulado. Nenhum valor foi pago. A empresa ainda recuperou custas processuais.",
+      "resultado_numero": "R$ 1,8M economizados",
+      "duracao": "14 meses",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.854Z",
+      "meta_title": "Anulação de auto de infração de R$ 1,8M",
+      "meta_description": "Auto de infração lavrado pela Receita Federal por suposta omissão de receitas foi totalmente anulado por vício formal no procedimento fiscal."
+    }
+  },
+  {
+    "model": "cases.caseestudo",
+    "pk": 3,
+    "fields": {
+      "titulo": "Due diligence tributária em aquisição de R$ 40M",
+      "slug": "due-diligence-tributaria-em-aquisicao-de-r-40m",
+      "cliente_ficticio": "Holding Gama S.A.",
+      "setor": "servicos",
+      "resumo": "Due diligence tributária completa em operação de M&A identificou passivo oculto de R$ 3M, permitindo renegociação do preço de aquisição.",
+      "problema": "Holding estava adquirindo empresa de serviços por R$ 40M. Auditoria tradicional não havia identificado contingências tributárias relevantes. Suspeita de passivo oculto surgiu em conversas informais.",
+      "solucao": "Conduzimos due diligence tributária completa: análise de 5 anos de obrigações fiscais, auditoria de autos de infração em andamento, revisão de planejamento tributário atual e projeção de riscos com a Reforma Tributária.",
+      "resultado": "Identificamos R$ 3M em passivos contingentes não declarados (autos de infração não contabilizados, discussões sobre ICMS-ST e créditos glosados). Cliente renegociou o preço em R$ 2,5M.",
+      "resultado_numero": "R$ 2,5M economizados",
+      "duracao": "3 meses",
+      "publicado": true,
+      "destaque": true,
+      "data_publicacao": "2026-08-04T17:55:17.859Z",
+      "meta_title": "Due diligence tributária em aquisição de R$ 40M",
+      "meta_description": "Due diligence tributária completa em operação de M&A identificou passivo oculto de R$ 3M, permitindo renegociação do preço de aquisição."
+    }
+  }
+]

@@ -104,13 +104,17 @@ DATABASES = {
     }
 }
 
-# Sobrescreve com DATABASE_URL se existir (Render)
+# Sobrescreve com DATABASE_URL se existir (Render com Postgres opcional)
 _db_url = os.getenv("DATABASE_URL")
 if _db_url:
     import dj_database_url
     DATABASES["default"] = dj_database_url.parse(
         _db_url, conn_max_age=600, conn_health_checks=True
     )
+else:
+    # Em produção sem DATABASE_URL, usa SQLite local (dados persistem no disco)
+    # Para site institucional de baixo/médio tráfego isso é perfeitamente viável.
+    pass
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [

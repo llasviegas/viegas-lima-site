@@ -3,7 +3,7 @@ services:
     name: viegas-lima-site
     runtime: python
     plan: free
-    buildCommand: "pip install -r requirements.txt && python manage.py migrate --noinput && python manage.py collectstatic --noinput"
+    buildCommand: "pip install -r requirements.txt && python manage.py migrate --noinput && python manage.py collectstatic --noinput && python manage.py loaddata seed_data.json || true"
     startCommand: "gunicorn vl_website.wsgi:application --workers=2 --threads=4 --timeout=120"
     envVars:
       - key: SECRET_KEY
@@ -16,17 +16,7 @@ services:
         value: "https://viegaselima.com.br,https://www.viegaselima.com.br,https://viegas-lima-site.onrender.com"
       - key: SITE_URL
         value: "https://viegaselima.com.br"
-      - key: DATABASE_URL
-        fromDatabase:
-          name: viegas-lima-db
-          property: connectionString
       - key: PYTHON_VERSION
         value: "3.11.9"
     healthCheckPath: /
     autoDeploy: true
-
-databases:
-  - name: viegas-lima-db
-    plan: free
-    databaseName: viegas_lima
-    user: viegas_lima
