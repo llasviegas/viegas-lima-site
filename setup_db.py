@@ -3,7 +3,8 @@ Idempotent: garante que o database existe antes do migrate rodar.
 Necessário porque Render free só permite 1 PG por team, então
 compartilhamos a instância com gag-bot-db mas em databases separados.
 
-Conexão usa a URL interna do Render (mesma região, sem SSL handshake externo).
+Usa pg8000 (já está no requirements.txt do projeto) — psycopg2-binary
+pode falhar no build do Render por restrições do ambiente.
 """
 import os
 import sys
@@ -15,9 +16,8 @@ def db_exists(cur, name):
 
 
 def main():
-    # Lazy imports: só dispara quando chamado como script (não quando importado)
-    import psycopg2
-    from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
+    # Lazy imports
+    import pg8000.dbapi
 
     pg_host = os.environ.get("PG_HOST", "dpg-d994vr77f7vs739qfnv0-a")
     pg_port = int(os.environ.get("PG_PORT", "5432"))
@@ -27,11 +27,11 @@ def main():
     admin_db = os.environ.get("ADMIN_DB", "gag_bot")
 
     print(f"[setup_db] Conectando ao {admin_db}@{pg_host}…", flush=True)
-    conn = psycopg2.connect(
+    conn = pg8000.dbapi.connect(
         host=pg_host, port=pg_port, user=pg_user, password=pg_pass,
-        database=admin_db, sslmode="require", connect_timeout=30,
+        database=admin_db, ssl=True,
     )
-    conn.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+    conn.autocommit = True
     cur = conn.cursor()
 
     if db_exists(cur, target_db):

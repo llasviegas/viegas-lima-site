@@ -4,7 +4,7 @@ services:
     runtime: python
     plan: free
     buildCommand: "pip install -r requirements.txt && python manage.py collectstatic --noinput"
-    startCommand: "bash -c 'export PG_HOST=$PG_HOST PG_PORT=$PG_PORT PG_USER=$PG_USER PG_PASSWORD=$PG_PASSWORD TARGET_DB=vl_site && python setup_db.py && export DATABASE_URL=postgresql://$PG_USER:$PG_PASSWORD@$PG_HOST:$PG_PORT/vl_site && python manage.py migrate --noinput && exec gunicorn vl_website.wsgi:application --workers=1 --threads=4 --timeout=120 --graceful-timeout=60'"
+    startCommand: "bash start.sh"
     envVars:
       - key: SECRET_KEY
         generateValue: true
@@ -18,7 +18,6 @@ services:
         value: "https://viegaselima.com.br"
       - key: PYTHON_VERSION
         value: "3.11.9"
-      # Conexão ao gag-bot-db (Render free limita 1 PG por team → compartilhado)
       - key: PG_HOST
         value: "dpg-d994vr77f7vs739qfnv0-a"
       - key: PG_PORT
