@@ -18,6 +18,7 @@ def db_exists(cur, name):
 def main():
     # Lazy imports
     import pg8000.dbapi
+    import ssl
 
     pg_host = os.environ.get("PG_HOST", "dpg-d994vr77f7vs739qfnv0-a")
     pg_port = int(os.environ.get("PG_PORT", "5432"))
@@ -27,9 +28,11 @@ def main():
     admin_db = os.environ.get("ADMIN_DB", "gag_bot")
 
     print(f"[setup_db] Conectando ao {admin_db}@{pg_host}…", flush=True)
+    # pg8000 aceita ssl_context (não ssl=True)
+    ssl_ctx = ssl.create_default_context()
     conn = pg8000.dbapi.connect(
         host=pg_host, port=pg_port, user=pg_user, password=pg_pass,
-        database=admin_db, ssl=True,
+        database=admin_db, ssl_context=ssl_ctx,
     )
     conn.autocommit = True
     cur = conn.cursor()
